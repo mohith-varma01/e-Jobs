@@ -21,8 +21,8 @@ public class Course
     public Course() {
     }
 
-    public Course(String courseId, String courseName, Uri courseVideoUri, Uri courseImageUri, String courseField) {
-        this.courseId = courseId;
+    public Course(String courseName, Uri courseVideoUri, Uri courseImageUri, String courseField) {
+
         this.courseName = courseName;
         this.courseVideoUri = courseVideoUri;
         this.courseImageUri = courseImageUri;

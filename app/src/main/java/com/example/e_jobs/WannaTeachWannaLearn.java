@@ -22,6 +22,7 @@ public class WannaTeachWannaLearn extends AppCompatActivity {
 
     public void onClickLearn(View view)
     {
-
+        Intent intent = new Intent(this, Teach_Activity.class);
+        startActivity(intent);
     }
 }

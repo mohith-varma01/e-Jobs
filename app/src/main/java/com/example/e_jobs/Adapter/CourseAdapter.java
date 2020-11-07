@@ -23,16 +23,16 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.MyCourseVi
     private TextView courseName;
     private ImageView imageView;
     private OnCourseListener onCourseListener;
-    Course course = new Course("Random", "Vocabulary",
-            Uri.parse("https://en.wikipedia.org/wiki/Cristiano_Ronaldo#/media/File:Cristiano_Ronaldo_2018.jpg"),
-            Uri.parse("https://www.youtube.com/watch?v=4jq0PSjEOow"));
+    //Course course = new Course("Random", "Vocabulary",
+            //Uri.parse("https://en.wikipedia.org/wiki/Cristiano_Ronaldo#/media/File:Cristiano_Ronaldo_2018.jpg"),
+            //Uri.parse("https://www.youtube.com/watch?v=4jq0PSjEOow"), "agriculture");
 
     public CourseAdapter(Context context, CourseExpert courseExpert, OnCourseListener onCourseListener)
     {
         this.context = context;
         this.courseExpert = courseExpert;
         this.onCourseListener = onCourseListener;
-        courseExpert.addCourse(course);
+        //courseExpert.addCourse(course);
     }
 
     @NonNull

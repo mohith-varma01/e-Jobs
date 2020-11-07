@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -49,6 +50,6 @@ public class LearnActivity extends AppCompatActivity implements CourseAdapter.On
 
     @Override
     public void onCourseClick1(int position) {
-
+        Intent intent = new Intent(this, ViewCourse.class);
     }
 }
