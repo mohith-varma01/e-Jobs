@@ -1,18 +1,18 @@
 package com.example.e_jobs.Expert;
 
-import com.example.e_jobs.Adapter.UserAdapter;
+import com.example.e_jobs.FireBaseDrivers.UserDriver;
 import com.example.e_jobs.Modal.User;
 
 import java.util.ArrayList;
 
 public class UserExpert
 {
-    UserAdapter userAdapter;
+    UserDriver userDriver;
     ArrayList<User> users ;
 
-    public UserExpert(UserAdapter adapter)
+    public UserExpert(UserDriver adapter)
     {
-        this.userAdapter = adapter;
+        this.userDriver = adapter;
         users = adapter.getAllUsers();
     }
 

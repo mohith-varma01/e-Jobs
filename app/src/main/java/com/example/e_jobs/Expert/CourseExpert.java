@@ -1,19 +1,19 @@
 package com.example.e_jobs.Expert;
 
-import com.example.e_jobs.Adapter.CourseAdapter;
+import com.example.e_jobs.FireBaseDrivers.CourseDriver;
 import com.example.e_jobs.Modal.Course;
 
 import java.util.ArrayList;
 
 public class CourseExpert
 {
-    CourseAdapter courseAdapter;
+    CourseDriver courseDriver;
     ArrayList<Course> courses;
 
-    public CourseExpert(CourseAdapter courseAdapter)
+    public CourseExpert(CourseDriver courseDriver)
     {
-        this.courseAdapter = courseAdapter;
-        this.courses = courseAdapter.getAllCourse();
+        this.courseDriver = courseDriver;
+        this.courses = courseDriver.getAllCourse();
     }
 
     public void addCourse(Course course)

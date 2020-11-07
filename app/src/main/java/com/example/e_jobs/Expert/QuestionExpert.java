@@ -1,19 +1,19 @@
 package com.example.e_jobs.Expert;
 
-import com.example.e_jobs.Adapter.QuestionAdapter;
+import com.example.e_jobs.FireBaseDrivers.QuestionDriver;
 import com.example.e_jobs.Modal.Question;
 
 import java.util.ArrayList;
 
 public class QuestionExpert
 {
-    QuestionAdapter questionAdapter;
+    QuestionDriver questionDriver;
     ArrayList<Question> questions;
 
-    public QuestionExpert(QuestionAdapter questionAdapter)
+    public QuestionExpert(QuestionDriver questionDriver)
     {
-        this.questionAdapter = questionAdapter;
-        this.questions = questionAdapter.getAllQuestions();
+        this.questionDriver = questionDriver;
+        this.questions = questionDriver.getAllQuestions();
     }
 
     public void addQuestion(Question question)

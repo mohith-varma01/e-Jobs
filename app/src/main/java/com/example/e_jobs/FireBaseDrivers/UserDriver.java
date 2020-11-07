@@ -1,9 +1,8 @@
-package com.example.e_jobs.Adapter;
+package com.example.e_jobs.FireBaseDrivers;
 
 import androidx.annotation.NonNull;
 
-import com.example.e_jobs.Modal.Course;
-import com.example.e_jobs.Modal.Question;
+import com.example.e_jobs.Modal.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -12,38 +11,38 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class QuestionAdapter
-{
+public class UserDriver {
+
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
-    private ArrayList<Question> questions;
+    private ArrayList<User> users;
 
-    public QuestionAdapter()
+    public UserDriver()
     {
-        setupDatabase();
+        setUpDatabaseLink();
     }
 
-    private void setupDatabase()
+    private void setUpDatabaseLink()
     {
         database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference().child("questions");
+        databaseReference = database.getReference("users");
     }
 
-    public void addQuestionToDb(Question question)
+    public void addUserToDb(User user)
     {
-        databaseReference.push().setValue(question);
+        databaseReference.push().setValue(user);
     }
 
-    public ArrayList<Question> getAllQuestions()
+    public ArrayList<User> getAllUsers()
     {
-        questions = new ArrayList<>();
+        users = new ArrayList<>();
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot subTree: snapshot.getChildren())
                 {
-                    Question question = subTree.getValue(Question.class);
-                    questions.add(question);
+                    User user = subTree.getValue(User.class);
+                    users.add(user);
                 }
             }
 
@@ -52,6 +51,6 @@ public class QuestionAdapter
 
             }
         });
-        return questions;
+        return users;
     }
 }

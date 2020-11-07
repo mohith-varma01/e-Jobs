@@ -1,8 +1,8 @@
-package com.example.e_jobs.Adapter;
+package com.example.e_jobs.FireBaseDrivers;
 
 import androidx.annotation.NonNull;
 
-import com.example.e_jobs.Modal.User;
+import com.example.e_jobs.Modal.Question;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -11,38 +11,38 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class UserAdapter {
-
+public class QuestionDriver
+{
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
-    private ArrayList<User> users;
+    private ArrayList<Question> questions;
 
-    public UserAdapter()
+    public QuestionDriver()
     {
-        setUpDatabaseLink();
+        setupDatabase();
     }
 
-    private void setUpDatabaseLink()
+    private void setupDatabase()
     {
         database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference("users");
+        databaseReference = database.getReference().child("questions");
     }
 
-    public void addUserToDb(User user)
+    public void addQuestionToDb(Question question)
     {
-        databaseReference.push().setValue(user);
+        databaseReference.push().setValue(question);
     }
 
-    public ArrayList<User> getAllUsers()
+    public ArrayList<Question> getAllQuestions()
     {
-        users = new ArrayList<>();
+        questions = new ArrayList<>();
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot subTree: snapshot.getChildren())
                 {
-                    User user = subTree.getValue(User.class);
-                    users.add(user);
+                    Question question = subTree.getValue(Question.class);
+                    questions.add(question);
                 }
             }
 
@@ -51,6 +51,6 @@ public class UserAdapter {
 
             }
         });
-        return users;
+        return questions;
     }
 }

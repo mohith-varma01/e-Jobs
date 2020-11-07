@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.e_jobs.Adapter.CertificateAdapter;
-import com.example.e_jobs.Adapter.UserAdapter;
+import com.example.e_jobs.FireBaseDrivers.UserDriver;
 import com.example.e_jobs.Expert.UserExpert;
 
 public class USerProfilePageActivity extends AppCompatActivity implements CertificateAdapter.OnRoomListerner {
@@ -23,7 +23,7 @@ public class USerProfilePageActivity extends AppCompatActivity implements Certif
     private RecyclerView recyclerView;
     CertificateAdapter certificateAdapter;
     UserExpert userExpert;
-    UserAdapter userAdapter;
+    UserDriver userDriver;
     String email = "mohithvarmais@gmail.com";
 
     @Override
@@ -42,8 +42,8 @@ public class USerProfilePageActivity extends AppCompatActivity implements Certif
         //textViewRankUser = findViewById(R.id.textView_rank);
         imageViewUserProfileImage = findViewById(R.id.ImageView_UserProfileImage);
         recyclerView = findViewById(R.id.recyclerView);
-        userAdapter = new UserAdapter();
-        userExpert = new UserExpert(userAdapter);
+        userDriver = new UserDriver();
+        userExpert = new UserExpert(userDriver);
         certificateAdapter = new CertificateAdapter(this, userExpert,this, email );
     }
 

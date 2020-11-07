@@ -1,4 +1,4 @@
-package com.example.e_jobs.Adapter;
+package com.example.e_jobs.FireBaseDrivers;
 
 import androidx.annotation.NonNull;
 
@@ -11,13 +11,13 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class CourseAdapter
+public class CourseDriver
 {
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
     private ArrayList<Course> courses;
 
-    public CourseAdapter()
+    public CourseDriver()
     {
         setupDatabase();
     }

@@ -4,23 +4,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.e_jobs.Adapter.UserAdapter;
+import com.example.e_jobs.FireBaseDrivers.UserDriver;
 import com.example.e_jobs.Modal.User;
-import com.firebase.ui.auth.IdpResponse;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,10 +24,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.firebase.ui.auth.AuthUI;
-
-import java.util.Arrays;
-import java.util.List;
 
 import static com.example.e_jobs.SignUpActivity.USER_UID;
 
@@ -44,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private static final int RC_SIGN_IN = 1;
     private static final int AUTHUI_REQUEST_CODE = 10001;
-    UserAdapter userAdapter;
+    UserDriver userDriver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
     {
         googleSignIn = findViewById(R.id.GoogleSignIn);
         mAuth = FirebaseAuth.getInstance();
-        userAdapter = new UserAdapter();
+        userDriver = new UserDriver();
 
         googleSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -173,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
             String personEmail = account.getEmail();
             String personId = account.getId();
             User user = new User(personName, personFamilyName, personId, personEmail, null, 0 , null);
-            userAdapter.addUserToDb(user);
+            userDriver.addUserToDb(user);
             Intent intent = new Intent(MainActivity.this, BaseActivity.class);
             intent.putExtra(USER_UID, personId);
             startActivity(intent);
