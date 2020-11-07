@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">e-Jobs</string>
+    <string-array name="names">
+        <item>Farmer</item>
+        <item>self-employeed</item>
+        <item>daily wage workers</item>
+    </string-array>
 </resources>

@@ -92,11 +92,11 @@ public class MainActivity extends AppCompatActivity {
 //        signIn();
 //    }
 
-//    public void EmailSignIn(View view)
-//    {
-//        Intent intent = new Intent(this, SignInActivity.class);
-//        startActivity(intent);
-//    }
+    public void EmailSignIn(View view)
+    {
+        Intent intent = new Intent(this, SignInActivity.class);
+        startActivity(intent);
+    }
 
     private void signIn()
     {

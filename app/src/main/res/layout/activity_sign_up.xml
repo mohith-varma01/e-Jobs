@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#0099ff"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/GoogleSignIn"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="291dp"
+        android:layout_height="33dp"
+        android:background="@drawable/rounded_buttons"
+        android:gravity="center"
+        android:hint="Enter your email"
+        android:padding="5dp"
+        android:textColorHint="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintVertical_bias="0.125"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="291dp"
+        android:layout_height="33dp"
+        android:background="@drawable/rounded_buttons"
+        android:hint="Enter Your password"
+        android:padding="5dp"
+        android:textColorHint="#ffffff"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintVertical_bias="0.267"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/firstNameEditText"
+        android:layout_width="291dp"
+        android:layout_height="33dp"
+        android:background="@drawable/rounded_buttons"
+        android:hint="Enter your First Name"
+        android:padding="5dp"
+        android:gravity="center"
+        android:textColorHint="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintVertical_bias="0.416"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/lastNameEditText"
+        android:layout_width="291dp"
+        android:layout_height="33dp"
+        android:background="@drawable/rounded_buttons"
+        android:hint="Enter your Last Name"
+        android:padding="5dp"
+        android:textColorHint="#ffffff"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintVertical_bias="0.551"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#2067CF"
+        android:onClick="signUp"
+        android:text="sign Up"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintVertical_bias="0.159"
+        android:padding="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textSize="33dp"
+        android:padding="5dp"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/editText2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        android:fontFamily="sans-serif-black"
+        android:drawableLeft="@drawable/rounded_buttons"
+        android:drawablePadding="8dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

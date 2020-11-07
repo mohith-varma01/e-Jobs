@@ -5,7 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +32,7 @@ public class USerProfilePageActivity extends AppCompatActivity implements Certif
 
         bindViews();
         setupInitializer();
+        spinner();
     }
 
     private void bindViews()
@@ -52,5 +55,13 @@ public class USerProfilePageActivity extends AppCompatActivity implements Certif
     @Override
     public void onRoomClick(int position) {
         Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
+    }
+
+    private void spinner()
+    {
+        Spinner spinner = findViewById(R.id.spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, getResources().getStringArray(R.array.names));
+        adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
     }
 }
