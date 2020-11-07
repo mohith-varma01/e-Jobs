@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.e_jobs.Adapter.UserAdapter;
+import com.example.e_jobs.Modal.User;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -32,6 +34,8 @@ import com.firebase.ui.auth.AuthUI;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.example.e_jobs.SignUpActivity.USER_UID;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button googleSignIn;
@@ -40,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private static final int RC_SIGN_IN = 1;
     private static final int AUTHUI_REQUEST_CODE = 10001;
+    UserAdapter userAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
     {
         googleSignIn = findViewById(R.id.GoogleSignIn);
         mAuth = FirebaseAuth.getInstance();
+        userAdapter = new UserAdapter();
 
         googleSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,16 +172,13 @@ public class MainActivity extends AppCompatActivity {
             String personFamilyName = account.getFamilyName();
             String personEmail = account.getEmail();
             String personId = account.getId();
+            User user = new User(personName, personFamilyName, personId, personEmail, null, 0 , null);
+            userAdapter.addUserToDb(user);
             Intent intent = new Intent(MainActivity.this, USerProfilePageActivity.class);
-            intent.putExtra("email", personEmail);
+            intent.putExtra(USER_UID, personId);
             startActivity(intent);
         }
 
         //Toast.makeText(this, fUser.getEmail(), Toast.LENGTH_SHORT).show();
-    }
-
-    public void PhoneNumberSignIn(View view)
-    {
-
     }
 }

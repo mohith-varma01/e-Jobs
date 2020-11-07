@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.e_jobs.Adapter.UserAdapter;
+import com.example.e_jobs.Modal.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -27,7 +29,9 @@ public class SignUpActivity extends AppCompatActivity {
     String password;
     String firstName;
     String lastName;
+    UserAdapter userAdapter;
     public static String TAG = "myTag";
+    public static String USER_UID = "userUID";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,7 @@ public class SignUpActivity extends AppCompatActivity {
         passwordEditText = findViewById(R.id.passwordEditText);
         firstNameEditText = findViewById(R.id.firstNameEditText);
         lastNameEditText = findViewById(R.id.lastNameEditText);
+        userAdapter = new UserAdapter();
     }
 
     public void signUp(View view)
@@ -61,9 +66,9 @@ public class SignUpActivity extends AppCompatActivity {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             assert user != null;
-
+                            userAdapter.addUserToDb(new User(firstName, lastName, user.getUid(), emailAddress, null,  0, null));
                             Intent intent = new Intent(SignUpActivity.this, USerProfilePageActivity.class);
-                            intent.putExtra("email", user.getEmail());
+                            intent.putExtra(USER_UID, user.getUid());
                             startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.

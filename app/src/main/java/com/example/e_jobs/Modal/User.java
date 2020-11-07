@@ -2,25 +2,31 @@ package com.example.e_jobs.Modal;
 
 import android.net.Uri;
 
-import java.net.URI;
-
 public class User {
+    String userUID;
     private String userFirstName;
     private String userLastName;
     private String userMailAddress;
-    private int userPhoneNumber;
     private Uri userProfileUrl;
     private int userRank;
     private String userAboutDetails;
 
+    public String getUserUID() {
+        return userUID;
+    }
+
+    public void setUserUID(String userUID) {
+        this.userUID = userUID;
+    }
+
     public User() {
     }
 
-    public User(String userFirstName, String userLastName, String userMailAddress, int userPhoneNumber, Uri userProfileUrl, int userRank, String userAboutDetails) {
+    public User(String userFirstName, String userLastName,  String userUID,String userMailAddress, Uri userProfileUrl, int userRank, String userAboutDetails) {
         this.userFirstName = userFirstName;
         this.userLastName = userLastName;
+        this.userUID = userUID;
         this.userMailAddress = userMailAddress;
-        this.userPhoneNumber = userPhoneNumber;
         this.userProfileUrl = userProfileUrl;
         this.userRank = userRank;
         this.userAboutDetails = userAboutDetails;
@@ -48,14 +54,6 @@ public class User {
 
     public void setUserMailAddress(String userMailAddress) {
         this.userMailAddress = userMailAddress;
-    }
-
-    public int getUserPhoneNumber() {
-        return userPhoneNumber;
-    }
-
-    public void setUserPhoneNumber(int userPhoneNumber) {
-        this.userPhoneNumber = userPhoneNumber;
     }
 
     public Uri getUserProfileUrl() {

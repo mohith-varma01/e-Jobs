@@ -1,4 +1,4 @@
-package com.example.e_jobs;
+package com.example.e_jobs.Expert;
 
 import com.example.e_jobs.Adapter.UserAdapter;
 import com.example.e_jobs.Modal.User;
@@ -21,10 +21,10 @@ public class UserExpert
         users.add(user);
     }
 
-    public User getUser(String email)
+    public User getUser(String uid)
     {
         for (int i = 0; i < users.size(); i++) {
-            if(users.get(i).getUserMailAddress().equals(email))
+            if(users.get(i).getUserUID().equals(uid))
             {
                 return users.get(i);
             }

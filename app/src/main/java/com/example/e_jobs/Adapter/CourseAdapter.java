@@ -2,7 +2,7 @@ package com.example.e_jobs.Adapter;
 
 import androidx.annotation.NonNull;
 
-import com.example.e_jobs.Modal.User;
+import com.example.e_jobs.Modal.Course;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -11,38 +11,38 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class UserAdapter {
-
+public class CourseAdapter
+{
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
-    private ArrayList<User> users;
+    private ArrayList<Course> courses;
 
-    public UserAdapter()
+    public CourseAdapter()
     {
-        setUpDatabaseLink();
+        setupDatabase();
     }
 
-    private void setUpDatabaseLink()
+    private void setupDatabase()
     {
         database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference("users");
+        databaseReference = database.getReference().child("courses");
     }
 
-    public void addUserToDb(User user)
+    public void addCourseToDb(Course course)
     {
-        databaseReference.push().setValue(user);
+        databaseReference.push().setValue(course);
     }
 
-    public ArrayList<User> getAllUsers()
+    public ArrayList<Course> getAllCourse()
     {
-        users = new ArrayList<>();
+        courses = new ArrayList<>();
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot subTree: snapshot.getChildren())
                 {
-                    User user = subTree.getValue(User.class);
-                    users.add(user);
+                    Course course = subTree.getValue(Course.class);
+                    courses.add(course);
                 }
             }
 
@@ -51,6 +51,6 @@ public class UserAdapter {
 
             }
         });
-        return users;
+        return courses;
     }
 }

@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.e_jobs.Adapter.CertificateAdapter;
 import com.example.e_jobs.Adapter.UserAdapter;
+import com.example.e_jobs.Expert.UserExpert;
 
 public class USerProfilePageActivity extends AppCompatActivity implements CertificateAdapter.OnRoomListerner {
 
