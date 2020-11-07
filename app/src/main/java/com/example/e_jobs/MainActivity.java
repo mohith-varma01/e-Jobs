@@ -59,12 +59,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-//        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-//        //updateUI(account);
-//        Toast.makeText(this, "Previously logged in", Toast.LENGTH_SHORT).show();
-//
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        updateUI(currentUser);
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+        //updateUI(account);
+        Toast.makeText(this, "Previously logged in", Toast.LENGTH_SHORT).show();
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
     }
 
     private void setUpGoogleSignIn()
@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
             String personId = account.getId();
             User user = new User(personName, personFamilyName, personId, personEmail, null, 0 , null);
             userAdapter.addUserToDb(user);
-            Intent intent = new Intent(MainActivity.this, USerProfilePageActivity.class);
+            Intent intent = new Intent(MainActivity.this, BaseActivity.class);
             intent.putExtra(USER_UID, personId);
             startActivity(intent);
         }

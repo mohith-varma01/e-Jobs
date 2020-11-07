@@ -67,7 +67,7 @@ public class SignUpActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             assert user != null;
                             userAdapter.addUserToDb(new User(firstName, lastName, user.getUid(), emailAddress, null,  0, null));
-                            Intent intent = new Intent(SignUpActivity.this, USerProfilePageActivity.class);
+                            Intent intent = new Intent(SignUpActivity.this, BaseActivity.class);
                             intent.putExtra(USER_UID, user.getUid());
                             startActivity(intent);
                         } else {

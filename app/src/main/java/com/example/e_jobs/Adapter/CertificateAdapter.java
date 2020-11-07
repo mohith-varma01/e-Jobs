@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.e_jobs.R;
-import com.example.e_jobs.Expert.UserExpert;
+import com.example.e_jobs.Expert .UserExpert;
 
 public class CertificateAdapter extends RecyclerView.Adapter<CertificateAdapter.RoomViewHolder>
 {
@@ -41,7 +41,7 @@ public class CertificateAdapter extends RecyclerView.Adapter<CertificateAdapter.
     {
         View view = holder.itemView;
         ImageView roomImage = view.findViewById(R.id.imageView1);
-        roomImage.setImageURI(roomExpert.getUser(email).getUserProfileUrl());
+        //roomImage.setImageURI(roomExpert.getUser(email).getUserProfileUrl());
     }
 
     @Override
