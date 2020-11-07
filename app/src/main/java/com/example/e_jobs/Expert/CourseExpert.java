@@ -32,6 +32,11 @@ public class CourseExpert
         return null;
     }
 
+    public Course getCourseOfPosition(int position)
+    {
+        return courses.get(position);
+    }
+
     public int getTotalCourses()
     {
         return courses.size();

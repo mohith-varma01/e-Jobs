@@ -2,6 +2,7 @@ package com.example.e_jobs;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,7 +16,8 @@ public class WannaTeachWannaLearn extends AppCompatActivity {
 
     public void onClickTeach(View view)
     {
-
+        Intent intent = new Intent(this, LearnActivity.class);
+        startActivity(intent);
     }
 
     public void onClickLearn(View view)

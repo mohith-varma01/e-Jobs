@@ -43,6 +43,7 @@ public class BaseActivity extends AppCompatActivity {
 
     public void onClickContactDoc(View view)
     {
-
+        Intent intent = new Intent(this, ContactDocActivity.class);
+        startActivity(intent);
     }
 }
