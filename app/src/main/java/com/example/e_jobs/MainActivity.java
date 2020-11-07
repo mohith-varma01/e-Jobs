@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.IdpResponse;
@@ -33,7 +34,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private SignInButton googleSignIn;
+    private Button googleSignIn;
     private GoogleSignInClient mGoogleSignInClient;
     private String TAG = "MainActivity";
     private FirebaseAuth mAuth;
@@ -114,34 +115,6 @@ public class MainActivity extends AppCompatActivity {
             handleSignInResult(task);
         }
 
-        if (requestCode == AUTHUI_REQUEST_CODE)
-        {
-            if (resultCode == RESULT_OK) {
-                // We have signed in the user or we have a new user
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                Log.d(TAG, "onActivityResult: " + user.toString());
-                //Checking for User (New/Old)
-                if (user.getMetadata().getCreationTimestamp() == user.getMetadata().getLastSignInTimestamp()) {
-                    //This is a New User
-                } else {
-                    //This is a returning user
-                }
-
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
-                this.finish();
-
-            } else {
-                // Signing in failed
-                IdpResponse response = IdpResponse.fromResultIntent(data);
-                if (response == null) {
-                    Log.d(TAG, "onActivityResult: the user has cancelled the sign in request");
-                } else {
-                    Log.e(TAG, "onActivityResult: ", response.getError());
-                }
-            }
-        }
-
     }
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask)
@@ -193,11 +166,9 @@ public class MainActivity extends AppCompatActivity {
             String personFamilyName = account.getFamilyName();
             String personEmail = account.getEmail();
             String personId = account.getId();
-            //Uri personPhoto = account.getPhotoUrl();
-
-            Toast.makeText(this, personName + " " + personGivenName + " " + personFamilyName +  " " + personEmail
-                            + " " + personId,
-                    Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, USerProfilePageActivity.class);
+            intent.putExtra("email", personEmail);
+            startActivity(intent);
         }
 
         //Toast.makeText(this, fUser.getEmail(), Toast.LENGTH_SHORT).show();
@@ -205,20 +176,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void PhoneNumberSignIn(View view)
     {
-        List<AuthUI.IdpConfig> providers = Arrays.asList(
-                //new AuthUI.IdpConfig.EmailBuilder().build(),
-                //new AuthUI.IdpConfig.GoogleBuilder().build(),
-                new AuthUI.IdpConfig.PhoneBuilder().build()
-        );
 
-        Intent intent = AuthUI.getInstance()
-                .createSignInIntentBuilder()
-                .setAvailableProviders(providers)
-                .setTosAndPrivacyPolicyUrls("https://example.com", "https://example.com")
-                .setAlwaysShowSignInMethodScreen(true)
-                .setIsSmartLockEnabled(false)
-                .build();
-
-        startActivityForResult(intent, AUTHUI_REQUEST_CODE);
     }
 }
