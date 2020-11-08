@@ -3,49 +3,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#bdfcf8">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#4C94E1"
+        android:background="#0099ff"
         tools:ignore="MissingConstraints" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/GoogleSignIn"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:background="@drawable/ic_wave"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/emailEditText"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="Enter your Email"
+        android:textColorHint="#ffffff"
         android:inputType="textEmailAddress"
+        android:textAlignment="center"
+        android:background="@drawable/rounded_edit_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2"/>
+        app:layout_constraintVertical_bias="0.3"/>
 
     <EditText
         android:id="@+id/passwordEditText"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="Enter your password"
+        android:textColorHint="#ffffff"
         android:inputType="textPassword"
+        android:background="@drawable/rounded_edit_text"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/emailEditText"
         app:layout_constraintStart_toStartOf="@+id/emailEditText"
         app:layout_constraintTop_toBottomOf="@+id/emailEditText"
-        app:layout_constraintVertical_bias="0.1"/>
+        app:layout_constraintVertical_bias="0.15"/>
 
     <Button
         android:id="@+id/SignInButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="SignIn"
-        android:text="SignIn"
-        android:background="#ffffff"
+        android:text="Sign In"
+        android:textSize="22sp"
+        android:background="@drawable/rounded_buttons"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/passwordEditText"
         app:layout_constraintStart_toStartOf="@+id/passwordEditText"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordEditText"
+        android:fontFamily="@font/coustard"
+        android:textColor="#ffffff"
+        android:padding="10dp"/>
 
     <Button
         android:id="@+id/signUpButton"
@@ -53,12 +74,16 @@
         android:layout_height="wrap_content"
         android:onClick="SignUp"
         android:text="SignUp"
-        android:background="#EC1132"
+        android:textSize="22sp"
+        android:background="@drawable/rounded_buttons"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SignInButton"
-        app:layout_constraintVertical_bias="0.303" />
+        app:layout_constraintVertical_bias="0.303"
+        android:padding="10dp"
+        android:fontFamily="@font/coustard"
+        android:textColor="#ffffff"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

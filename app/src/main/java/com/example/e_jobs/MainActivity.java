@@ -7,10 +7,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.e_jobs.Expert.DoctorExpert;
+import com.example.e_jobs.Expert.UserExpert;
+import com.example.e_jobs.FireBaseDrivers.DoctorDriver;
 import com.example.e_jobs.FireBaseDrivers.UserDriver;
+import com.example.e_jobs.Modal.Doctor;
 import com.example.e_jobs.Modal.User;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -35,7 +41,10 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private static final int RC_SIGN_IN = 1;
     private static final int AUTHUI_REQUEST_CODE = 10001;
-    UserDriver userDriver;
+    private UserDriver userDriver;
+    static int i = 0;
+    static int j = 0;
+    private UserExpert userExpert;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,11 +77,11 @@ public class MainActivity extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
     }
 
-    private void bindViews()
-    {
+    private void bindViews() {
         googleSignIn = findViewById(R.id.GoogleSignIn);
         mAuth = FirebaseAuth.getInstance();
         userDriver = new UserDriver();
+        userExpert = new UserExpert(userDriver);
 
         googleSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,14 +90,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
-//    public void GoogleSignIn(View view)
-//    {
-//        signIn();
-//    }
-
     public void EmailSignIn(View view)
     {
         Intent intent = new Intent(this, SignInActivity.class);
@@ -164,14 +165,21 @@ public class MainActivity extends AppCompatActivity {
             String personEmail = account.getEmail();
             String personId = account.getId();
             User user = new User(personName, personFamilyName, personId, personEmail, null, 0 , null);
-            userDriver.addUserToDb(user);
+            if(i == 0)
+            {
+                userExpert.addUser(user);
+                i = 1;
+            }
             Intent intent = new Intent(MainActivity.this, BaseActivity.class);
             intent.putExtra(USER_UID, personId);
             startActivity(intent);
         }
-
         //Toast.makeText(this, fUser.getEmail(), Toast.LENGTH_SHORT).show();
     }
 
 
+    public void onCLickPractise(View view)
+    {
+        startActivity(new Intent(this, QuizActivity.class));
+    }
 }

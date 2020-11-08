@@ -2,12 +2,20 @@ package com.example.e_jobs.Modal;
 
 import android.net.Uri;
 
+import java.io.StringReader;
+
 public class Course
 {
-    String courseId;
+    private int courseId;
+    private int id;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private String courseName;
-    private Uri courseVideoUri;
-    private Uri courseImageUri;
+    private String  courseVideoUri;
+    private String courseImageUri;
     private String courseField;
 
     public String getCourseField() {
@@ -21,21 +29,31 @@ public class Course
     public Course() {
     }
 
-    public Course(String courseName, Uri courseVideoUri, Uri courseImageUri, String courseField) {
+//    public Course(String courseName, String  courseVideoUri, String  courseImageUri, String courseField) {
+//
+//        this.courseName = courseName;
+//        this.courseVideoUri = courseVideoUri;
+//        this.courseImageUri = courseImageUri;
+//        this.courseField = courseField;
+//    }
 
-        this.courseName = courseName;
-        this.courseVideoUri = courseVideoUri;
-        this.courseImageUri = courseImageUri;
+    public Course(int id, String courseName, int courseId, String courseField)
+    {
         this.courseField = courseField;
+        this.courseId = courseId;
+        this.courseName = courseName;
+        this.id = id;
     }
 
-    public String getCourseId() {
+    public int getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(String courseId) {
+    public void setCourseId(int courseId) {
         this.courseId = courseId;
     }
+
+    public int getId() { return id;}
 
     public String getCourseName() {
         return courseName;
@@ -45,19 +63,19 @@ public class Course
         this.courseName = courseName;
     }
 
-    public Uri getCourseVideoUri() {
+    public String  getCourseVideoUri() {
         return courseVideoUri;
     }
 
-    public void setCourseVideoUri(Uri courseVideoUri) {
+    public void setCourseVideoUri(String  courseVideoUri) {
         this.courseVideoUri = courseVideoUri;
     }
 
-    public Uri getCourseImageUri() {
+    public String  getCourseImageUri() {
         return courseImageUri;
     }
 
-    public void setCourseImageUri(Uri courseImageUri) {
+    public void setCourseImageUri(String courseImageUri) {
         this.courseImageUri = courseImageUri;
     }
 }

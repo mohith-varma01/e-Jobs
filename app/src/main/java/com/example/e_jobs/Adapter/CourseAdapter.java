@@ -12,27 +12,39 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.e_jobs.Data.CourseData;
 import com.example.e_jobs.Expert.CourseExpert;
 import com.example.e_jobs.Modal.Course;
 import com.example.e_jobs.R;
+
+import java.util.ArrayList;
 
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.MyCourseViewHolder>
 {
     private Context context;
     private CourseExpert courseExpert;
+    private CourseData courseData;
     private TextView courseName;
     private ImageView imageView;
+    ArrayList<Course> courses;
+    private String field;
+    int i;
     private OnCourseListener onCourseListener;
-    //Course course = new Course("Random", "Vocabulary",
-            //Uri.parse("https://en.wikipedia.org/wiki/Cristiano_Ronaldo#/media/File:Cristiano_Ronaldo_2018.jpg"),
-            //Uri.parse("https://www.youtube.com/watch?v=4jq0PSjEOow"), "agriculture");
 
-    public CourseAdapter(Context context, CourseExpert courseExpert, OnCourseListener onCourseListener)
+    public CourseAdapter(Context context, CourseExpert courseExpert, OnCourseListener onCourseListener, String field, int i)
     {
         this.context = context;
         this.courseExpert = courseExpert;
         this.onCourseListener = onCourseListener;
-        //courseExpert.addCourse(course);
+        courseData = new CourseData();
+        this.field = field;
+        this.i = i;
+        if(i == 0) {
+            courses = courseData.getCoursesOfField(field);
+        }
+        else {
+            courses = courseData.getCoursesOfFieldOtherThanField(field);
+        }
     }
 
     @NonNull
@@ -49,8 +61,8 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.MyCourseVi
     {
         View view = holder.view;
         bindViews(view);
-        courseName.setText(courseExpert.getCourseOfPosition(position).getCourseName());
-        imageView.setImageURI(courseExpert.getCourseOfPosition(position).getCourseImageUri());
+        courseName.setText(courses.get(position).getCourseName());
+        imageView.setImageResource(courses.get(position).getCourseId());
     }
 
     private void bindViews(View v)
@@ -62,7 +74,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.MyCourseVi
     @Override
     public int getItemCount()
     {
-        return courseExpert.getTotalCourses();
+        return courses.size();
     }
 
     public static class MyCourseViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
@@ -71,7 +83,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.MyCourseVi
         OnCourseListener onCourseListener;
         public MyCourseViewHolder(@NonNull View itemView, OnCourseListener onCourseListener) {
             super(itemView);
-            view = itemView;
+            this.view = itemView;
             this.onCourseListener = onCourseListener;
 
             itemView.setOnClickListener(this);

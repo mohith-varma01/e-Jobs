@@ -24,7 +24,7 @@ public class CourseExpert
     public Course getCourseOfId(String cId)
     {
         for (int i = 0; i < courses.size(); i++) {
-            if(courses.get(i).getCourseId().equals(cId))
+            if(courses.get(i).getCourseId() == Integer.parseInt(cId))
             {
                 return courses.get(i);
             }
