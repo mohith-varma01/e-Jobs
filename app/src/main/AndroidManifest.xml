@@ -13,6 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".GovtSchemeActivity"></activity>
         <activity android:name=".SellActivity" />
+        <activity android:name=".ContactDocActivity" />
         <activity android:name=".QuizActivity" />
         <activity android:name=".BuyActivity" />
         <activity android:name=".LearnActivity" />
@@ -36,5 +37,4 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-
 </manifest>
