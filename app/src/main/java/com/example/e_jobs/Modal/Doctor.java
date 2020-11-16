@@ -7,13 +7,13 @@ public class Doctor
     private String DocId;
     private String DoctorName;
     private String DoctorCredentials;
-    private Uri DoctorProfileUri;
+    private String  DoctorProfileUri;
 
     public Doctor() {
     }
 
-    public Doctor(String docId, String doctorName, String doctorCredentials, Uri doctorProfileUri) {
-        DocId = docId;
+    public Doctor( String docId, String doctorName, String doctorCredentials, String  doctorProfileUri) {
+        this.DocId = docId;
         DoctorName = doctorName;
         DoctorCredentials = doctorCredentials;
         DoctorProfileUri = doctorProfileUri;
@@ -43,11 +43,11 @@ public class Doctor
         DoctorCredentials = doctorCredentials;
     }
 
-    public Uri getDoctorProfileUri() {
+    public String getDoctorProfileUri() {
         return DoctorProfileUri;
     }
 
-    public void setDoctorProfileUri(Uri doctorProfileUri) {
+    public void setDoctorProfileUri(String doctorProfileUri) {
         DoctorProfileUri = doctorProfileUri;
     }
 }

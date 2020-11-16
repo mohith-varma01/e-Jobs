@@ -28,6 +28,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.example.e_jobs.DoctorActivity.DOC_ID;
+
 public class MessageActivity extends AppCompatActivity {
 
     private static final String USER_ID = "user_id";
@@ -49,7 +51,7 @@ public class MessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
 
-        userId = intent.getStringExtra(USER_ID);
+        userId = intent.getStringExtra(DOC_ID);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         imageButtonSend = findViewById(R.id.send_button);

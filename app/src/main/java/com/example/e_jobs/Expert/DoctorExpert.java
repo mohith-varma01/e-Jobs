@@ -21,6 +21,7 @@ public class DoctorExpert
     public void addDoctors(Doctor doctor)
     {
         doctors.add(doctor);
+        doctorDriver.addDocsToDb(doctor);
     }
 
     public Doctor getDoctorById(String cId)
@@ -37,5 +38,10 @@ public class DoctorExpert
     public int getTotalDoctors()
     {
         return doctors.size();
+    }
+
+    public Doctor getDoctorByPos(int position)
+    {
+        return doctors.get(position);
     }
 }

@@ -176,10 +176,9 @@ public class MainActivity extends AppCompatActivity {
         }
         //Toast.makeText(this, fUser.getEmail(), Toast.LENGTH_SHORT).show();
     }
-
-
+    
     public void onCLickPractise(View view)
     {
-        startActivity(new Intent(this, QuizActivity.class));
+        startActivity(new Intent(this, quizActivity.class));
     }
 }
