@@ -1,4 +1,4 @@
-package com.example.e_jobs;
+package com.example.e_jobs.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,13 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.e_jobs.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-public class PhoneNumberSignIn extends AppCompatActivity{
+public class PhoneNumberSignInActivity extends AppCompatActivity{
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private EditText phoneNumber;

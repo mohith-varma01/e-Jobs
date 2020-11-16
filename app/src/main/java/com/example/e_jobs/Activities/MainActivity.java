@@ -1,4 +1,4 @@
-package com.example.e_jobs;
+package com.example.e_jobs.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -7,17 +7,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.e_jobs.Expert.DoctorExpert;
 import com.example.e_jobs.Expert.UserExpert;
-import com.example.e_jobs.FireBaseDrivers.DoctorDriver;
 import com.example.e_jobs.FireBaseDrivers.UserDriver;
-import com.example.e_jobs.Modal.Doctor;
 import com.example.e_jobs.Modal.User;
+import com.example.e_jobs.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -31,7 +27,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-import static com.example.e_jobs.SignUpActivity.USER_UID;
+import static com.example.e_jobs.Activities.SignUpActivity.USER_UID;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -179,6 +175,6 @@ public class MainActivity extends AppCompatActivity {
     
     public void onCLickPractise(View view)
     {
-        startActivity(new Intent(this, quizActivity.class));
+        startActivity(new Intent(this, QuizActivity.class));
     }
 }

@@ -1,4 +1,4 @@
-package com.example.e_jobs;
+package com.example.e_jobs.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +17,7 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.example.e_jobs.Modal.Course;
+import com.example.e_jobs.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -84,5 +85,11 @@ public class AddCourse extends AppCompatActivity {
     }
 
     public void onClickTakeImage(View view) {
+    }
+
+    public void onClickEnterDetails(View view) {
+    }
+
+    public void onClickAddVideo(View view) {
     }
 }

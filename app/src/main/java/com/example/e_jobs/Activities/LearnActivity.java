@@ -1,11 +1,10 @@
-package com.example.e_jobs;
+package com.example.e_jobs.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import com.example.e_jobs.Adapter.CourseAdapter;
@@ -14,8 +13,8 @@ import com.example.e_jobs.Expert.CourseExpert;
 import com.example.e_jobs.Expert.UserExpert;
 import com.example.e_jobs.FireBaseDrivers.CourseDriver;
 import com.example.e_jobs.FireBaseDrivers.UserDriver;
-import com.example.e_jobs.Modal.Course;
 import com.example.e_jobs.Modal.User;
+import com.example.e_jobs.R;
 
 public class LearnActivity extends AppCompatActivity implements CourseAdapter.OnCourseListener {
 
@@ -68,7 +67,7 @@ public class LearnActivity extends AppCompatActivity implements CourseAdapter.On
     @Override
     public void onCourseClick1(int position) {
 
-        Intent intent = new Intent(this, ViewCourse.class);
+        Intent intent = new Intent(this, ViewCourseActivity.class);
         intent.putExtra("courseId",courseData.getCourseOfIndex(position).getId());
         startActivity(intent);
     }

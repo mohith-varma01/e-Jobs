@@ -1,6 +1,6 @@
-package com.example.e_jobs;
+package com.example.e_jobs.StaticDatas;
 
-public class QuestionLibrary {
+public class QuestionLibraray {
 
     private String mQuestions[] = {
             "Which of the following is not correct about plantation farming?",

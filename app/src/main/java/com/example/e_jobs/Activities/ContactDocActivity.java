@@ -1,10 +1,12 @@
-package com.example.e_jobs;
+package com.example.e_jobs.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+
+import com.example.e_jobs.R;
 
 public class ContactDocActivity extends AppCompatActivity {
 

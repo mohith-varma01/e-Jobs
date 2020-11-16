@@ -1,4 +1,4 @@
-package com.example.e_jobs;
+package com.example.e_jobs.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,10 +12,10 @@ import android.widget.Toast;
 
 import com.example.e_jobs.FireBaseDrivers.UserDriver;
 import com.example.e_jobs.Modal.User;
+import com.example.e_jobs.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.api.LogDescriptor;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

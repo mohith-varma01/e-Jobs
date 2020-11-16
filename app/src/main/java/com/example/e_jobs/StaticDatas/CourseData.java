@@ -1,6 +1,7 @@
-package com.example.e_jobs;
+package com.example.e_jobs.StaticDatas;
 
 import com.example.e_jobs.Modal.Course;
+import com.example.e_jobs.R;
 
 import java.util.ArrayList;
 
@@ -8,7 +9,7 @@ public class CourseData
 {
     ArrayList<Course> courses = new ArrayList<>();
 
-    Course course = new Course(1,"Farming",R.drawable.ic_action_name, "Farmer");
+    Course course = new Course(1,"Farming", R.drawable.ic_action_name, "Farmer");
     Course course1 = new Course(2,"Industrial Technologies",R.drawable.agriculture_2, "Farmer");
     Course course2 = new Course(3,"How to implement e-farming", R.drawable.agriculture_3,"Farmer");
     Course course3 = new Course(4,"10 self_employment ideas",R.drawable.self_1 ,"self-employeed");

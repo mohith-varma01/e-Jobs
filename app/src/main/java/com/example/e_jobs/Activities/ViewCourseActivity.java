@@ -1,11 +1,13 @@
-package com.example.e_jobs;
+package com.example.e_jobs.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.VideoView;
 
-public class ViewCourse extends AppCompatActivity {
+import com.example.e_jobs.R;
+
+public class ViewCourseActivity extends AppCompatActivity {
 
     VideoView videoView;
 

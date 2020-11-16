@@ -1,4 +1,4 @@
-package com.example.e_jobs;
+package com.example.e_jobs.Activities;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,10 +8,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.e_jobs.StaticDatas.QuestionLibraray;
+import com.example.e_jobs.R;
+
 public class QuizActivity extends AppCompatActivity
 {
 
-    private QuestionLibrary mQuestionLibrary = new QuestionLibrary();
+    private QuestionLibraray mQuestionLibrary = new QuestionLibraray();
 
     private TextView mScoreView;
     private TextView mQuestionView;
